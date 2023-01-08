@@ -132,25 +132,7 @@ def main(i):
             c3 = data["c3"].to(device)
             f1 = data["f1"].to(device)
             f3 = data["f3"].to(device)
-            # label = data["f2"].to(device)
-            # idxx = data['idx']
 
-            # c12 = torch.abs(c2 / 10000 - c1 / 10000)
-            # c23 = torch.abs(c3 / 10000 - c2 / 10000)
-            #
-            # sumc12 = torch.sum(c12)
-            # sumc23 = torch.sum(c23)
-            # v12 = sumc12 / (batch_size*channels * patchrow * patchrow)
-            # v23 = sumc23 / (batch_size*channels * patchrow * patchrow)
-            #
-            # if (v23 - v12) > delta:
-            #     alpha = 1.0
-            # elif (v12 - v23) > delta:
-            #     alpha = 0.0
-            # else:
-            #     alpha = (1/v12)/(1/v12+1/v23)
-
-            # print("process %s/%s:random %s...." % (i, len(train_loader), idxx))
             c1 = c1.to(torch.float32) / 10000
             c2 = c2.to(torch.float32) / 10000
             c3 = c3.to(torch.float32) / 10000
@@ -186,19 +168,8 @@ def main(i):
                     idcstart -= overlap
                 idcend += overlap
 
-                # 1 重叠区域取平均值
-                # temp = img[:, idrstart:idrend, idcstart:idcend]
-                # bb,h,w = f2.shape
-                #
-                # for bbi in range(bb):
-                #     for hi in range(h):
-                #         for wi in range(w):
-                #             if temp[bbi,hi,wi] == 0:
-                #                 temp[bbi,hi,wi] = f2[bbi,hi,wi]
-                #             else:
-                #                 temp[bbi,hi,wi] = (temp[bbi,hi,wi]+f2[bbi,hi,wi])/2
-                # img[:, idrstart:idrend, idcstart:idcend] = temp
-                # 2 无重叠或者重叠区域直接覆盖
+              
+                #  无重叠或者重叠区域直接覆盖
                 img[:, idrstart:idrend, idcstart:idcend] = f2i
     out = img[:, 0:realr, 0:realc].numpy()*10000
     out = out.astype('int16')
