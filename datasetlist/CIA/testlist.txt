@@ -1,0 +1,15 @@
+L2001_281_08oct.tif L2001_290_17oct.tif L2001_306_02nov.tif M2001_281_08oct.tif M2001_290_17oct.tif M2001_306_02nov.tif
+L2001_290_17oct.tif L2001_306_02nov.tif L2001_313_09nov.tif M2001_290_17oct.tif M2001_306_02nov.tif M2001_313_09nov.tif
+L2001_306_02nov.tif L2001_313_09nov.tif L2001_329_25nov.tif M2001_306_02nov.tif M2001_313_09nov.tif M2001_329_25nov.tif
+L2001_313_09nov.tif L2001_329_25nov.tif L2001_338_04dec.tif M2001_313_09nov.tif M2001_329_25nov.tif M2001_338_04dec.tif
+L2001_329_25nov.tif L2001_338_04dec.tif L2002_005_05jan.tif M2001_329_25nov.tif M2001_338_04dec.tif M2002_005_05jan.tif
+L2001_338_04dec.tif L2002_005_05jan.tif L2002_012_12jan.tif M2001_338_04dec.tif M2002_005_05jan.tif M2002_012_12jan.tif
+L2002_005_05jan.tif L2002_012_12jan.tif L2002_044_13feb.tif M2002_005_05jan.tif M2002_012_12jan.tif M2002_044_13feb.tif
+L2002_012_12jan.tif L2002_044_13feb.tif L2002_053_22feb.tif M2002_012_12jan.tif M2002_044_13feb.tif M2002_053_22feb.tif
+L2002_044_13feb.tif L2002_053_22feb.tif L2002_069_10mar.tif M2002_044_13feb.tif M2002_053_22feb.tif M2002_069_10mar.tif
+L2002_053_22feb.tif L2002_069_10mar.tif L2002_076_17mar.tif M2002_053_22feb.tif M2002_069_10mar.tif M2002_076_17mar.tif
+L2002_069_10mar.tif L2002_076_17mar.tif L2002_092_02apr.tif M2002_069_10mar.tif M2002_076_17mar.tif M2002_092_02apr.tif
+L2002_076_17mar.tif L2002_092_02apr.tif L2002_101_11apr.tif M2002_076_17mar.tif M2002_092_02apr.tif M2002_101_11apr.tif
+L2002_092_02apr.tif L2002_101_11apr.tif L2002_108_18apr.tif M2002_092_02apr.tif M2002_101_11apr.tif M2002_108_18apr.tif
+L2002_101_11apr.tif L2002_108_18apr.tif L2002_117_27apr.tif M2002_101_11apr.tif M2002_108_18apr.tif M2002_117_27apr.tif
+L2002_108_18apr.tif L2002_117_27apr.tif L2002_124_04may.tif M2002_108_18apr.tif M2002_117_27apr.tif M2002_124_04may.tif
