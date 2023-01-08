@@ -1,0 +1,94 @@
+#CIA
+# trainpath: D:/codes/dataset/CIA/train_set
+# # logpath: D:/codes/dataset/res/stfmlp/CIA
+# logpath: D:/codes/dataset/res/stfmlp
+# imglistdir: D:/codes/codes/stf/datasets/datasetlist/CIA/testlist.txt
+# checkpoint_path: D:/codes/codes/stf/mlp/v8/logs/40/cia
+# checkpoints_name: v8_000.pth
+#
+#trainpath: D:/codes/dataset/LGC/train_set
+#logpath: D:/codes/dataset/res/stfmlp/LGC
+#imglistdir: D:/codes/codes/stf/datasets/datasetlist/LGC/testlist.txt
+#checkpoint_path: D:/codes/codes/stf/mlp/v8/logs/40/lgc
+#checkpoints_name: v8_000.pth
+
+
+trainpath: /home/hllu/datasets/CIA/train_set
+logpath: /home/hllu/codes/stf/mlp/v8/logs/testtime
+imglistdir: /home/hllu/codes/stf/datasets/datasetlist/CIA/testlist.txt
+checkpoint_path: /home/hllu/codes/stf/mlp/v8/logs/40/cia
+checkpoints_name: v8_000.pth
+
+#LGC
+#trainpath: /home/hllu/datasets/LGC/train_set
+#logpath: /home/hllu/codes/stf/mlp/logs/v4/stfganlist/LGC
+#imglistdir: /home/hllu/codes/stf/datasets/stfganlist/LGC/testlist.txt
+#checkpoint_path: /home/hllu/codes/stf/mlp/logs/v4/stfganlist/LGC/v4_idx_0_100.pth
+#checkpoints_name: v4_idx_0_100.pth
+
+version: v8
+
+
+idx: !!int 0
+batch_size: !!int 2
+img_size: !!int 40
+inchannel: !!int 12
+outchannel: !!int 6
+numblocks: !!int 16
+fuse: !!int 0
+#ADAMW
+epochs: !!int 100
+seed: !!int 42
+log_freq: !!int 10
+savemodel_frequence: !!int 100
+eps: !!float 1e-8
+betas1: !!float 0.9
+betas2: !!float 0.999
+base_lr: !!float 1e-5
+min_lr: !!float 1e-6
+warmup_lr: !!float 5e-7
+weight_decay: !!float 0.05
+warmup_epochs: !!int 30
+
+#model
+STAGE1:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [2]
+  NUM_BRANCHES: 1
+  RESOLUTION: [40]
+  DIM: [60]
+#  DIM: [32]
+  NUM_MODULES: 1
+
+STAGE2:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [0, 2]
+  NUM_BRANCHES: 2
+  RESOLUTION: [40, 30]
+#  RESOLUTION: [64, 32]
+  DIM: [60,60]
+#  DIM: [32,32]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2
+
+STAGE3:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [0,2, 2]
+  NUM_BRANCHES: 3
+  RESOLUTION: [ 40, 30, 20 ]
+#  RESOLUTION: [ 64, 32, 16 ]
+  DIM: [ 60, 60, 60]
+#  DIM: [ 32, 32, 64]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2
+
+STAGE4:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [ 0, 0, 2, 2]
+  NUM_BRANCHES: 4
+  RESOLUTION: [ 40, 30, 20, 10]
+#  RESOLUTION: [ 64, 32, 16, 8]
+  DIM: [ 60, 60, 60, 60 ]
+#  DIM: [ 32, 32, 64, 128 ]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2

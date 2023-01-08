@@ -1,0 +1,91 @@
+#CIA
+#trainpath: D:/codes/dataset/CIA/train_set
+#logpath: D:/codes/codes/stf/mlp/v8/logs
+#imglistdir: D:/codes/codes/stf/datasets/datasetlist/CIA/testlist.txt
+#checkpoint_path: D:/codes/codes/stf/mlp/v8/logs/v8_000.pth
+#checkpoints_name: v8_000.pth
+
+trainpath: /home/hllu/datasets/CIA/train_set
+logpath: /home/hllu/codes/stf/mlp/v8/logs/test_revision/cia
+imglistdir: /home/hllu/codes/stf/datasets/datasetlist/CIA/testlist.txt
+checkpoint_path: /home/hllu/codes/stf/mlp/v8/logs/60/test_revision/v8_000.pth
+checkpoints_name: v8_000.pth
+#
+#trainpath: /home/hllu/datasets/LGC/train_set
+#logpath: /home/hllu/codes/stf/mlp/v8/logs/60/lgc
+#imglistdir: /home/hllu/codes/stf/datasets/datasetlist/LGC/testlist.txt
+#checkpoint_path: /home/hllu/codes/stf/mlp/v8/logs60/lgc/v8_000.pth
+#checkpoints_name: v8_000.pth
+
+#trainpath: /kaggle/input/dataset1
+#logpath: /log
+#imglistdir: /kaggle/input/configs/ciatestlist.txt
+#checkpoint_path: /mlp.pth
+#checkpoints_name: mlp.pthlslsls
+
+version: v8
+
+
+idx: !!int 1
+batch_size: !!int 64
+img_size: !!int 60
+inchannel: !!int 12
+outchannel: !!int 6
+numblocks: !!int 16
+fuse: !!int 0
+#ADAMW
+epochs: !!int 200
+seed: !!int 42
+log_freq: !!int 1000
+savemodel_frequence: !!int 100
+eps: !!float 1e-8
+betas1: !!float 0.9
+betas2: !!float 0.999
+base_lr: !!float 1e-5
+min_lr: !!float 1e-6
+warmup_lr: !!float 5e-7
+weight_decay: !!float 0.0001
+warmup_epochs: !!int 30
+
+#model
+STAGE1:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [2]
+  NUM_BRANCHES: 1
+  RESOLUTION: [60]
+  DIM: [60]
+#  DIM: [32]
+  NUM_MODULES: 1
+
+STAGE2:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [0, 2]
+  NUM_BRANCHES: 2
+  RESOLUTION: [60, 50]
+#  RESOLUTION: [64, 32]
+  DIM: [60,60]
+#  DIM: [32,32]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2
+
+STAGE3:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [0,2, 2]
+  NUM_BRANCHES: 3
+  RESOLUTION: [ 60, 50, 40 ]
+#  RESOLUTION: [ 64, 32, 16 ]
+  DIM: [ 60, 60, 60]
+#  DIM: [ 32, 32, 64]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2
+
+STAGE4:
+  FUSE_METHOD: SUM
+  NUM_BLOCKS: [ 0, 0, 2, 2]
+  NUM_BRANCHES: 4
+  RESOLUTION: [ 60, 50, 40, 30]
+#  RESOLUTION: [ 64, 32, 16, 8]
+  DIM: [ 60, 60, 60, 60 ]
+#  DIM: [ 32, 32, 64, 128 ]
+  NUM_MODULES: 1
+  MLP_RATIO: !!int 2
