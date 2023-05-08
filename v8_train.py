@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-kaggle 上运行的版本v7
-在7.2的基础上，修改图像块大小从64改为128
+
 """
 from skimage import io
 import os
