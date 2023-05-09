@@ -10,8 +10,8 @@ import numpy as np
 import time
 import random
 import gdal
-from v4_model import StfNet, Loss
-from v6_dataset import MyDataset
+from v8_train import StfNet, Loss
+from v8_train import MyDataset
 import utilme
 import argparse
 import torch.optim as optim
