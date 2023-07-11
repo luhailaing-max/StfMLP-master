@@ -427,6 +427,27 @@ def get_model(cfg, **kwargs):
     return  model
 
 
+class StfNet(nn.Module):
+    def __init__(self,config):
+        super(StfNet, self).__init__()
+
+        self.n1 = get_model(config)
+        self.n2 = get_model(config)
+
+    def forward(self,c1,c2,c3,f1,f3):
+        c1c2diff = c2 - c1
+        c2c3diff= c3 - c2
+        c1c3diff = c3 - c1
+        x1 = self.n1( torch.cat([c1c3diff,f1],dim=1))
+        x3 = self.n1( torch.cat([c1c2diff,f1],dim=1))
+
+        x2 = self.n2( torch.cat([c1c3diff,f3],dim=1))
+        x4 = self.n2( torch.cat([c2c3diff,f3],dim=1))
+        return x1,x2,x3,x4
+
+
+
+
 class Loss(nn.Module):
     def __init__(self,mybate,lamb=0.5):
         super(Loss, self).__init__()
