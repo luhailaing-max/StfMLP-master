@@ -28,7 +28,7 @@ version: v8
 
 idx: !!int 1
 batch_size: !!int 64
-img_size: !!int 60
+img_size: !!int 40
 inchannel: !!int 12
 outchannel: !!int 6
 numblocks: !!int 16
