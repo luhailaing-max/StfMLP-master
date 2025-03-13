@@ -655,7 +655,7 @@ def main(index):
     # mybate = v23/(v12+v23)
     # criterion = Loss(mybate=mybate,lamb=0.5)
 
-    criterion = Loss(mybate=0.0,lamb=0.5)
+    criterion = Loss(mybate=0.0,lamb=1.0)
 #ADAMW
     # optimizer = optim.AdamW(model.parameters(), eps=eps, betas=betas,
     #                         lr=base_lr, weight_decay=weight_decay)
