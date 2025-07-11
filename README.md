@@ -1,4 +1,4 @@
-paper: 
+Paper: 
 "Chen G, Lu H, Di D, et al. StfMLP: Spatiotemporal Fusion Multi-Layer Perceptron for Remote Sensing Images[J]. IEEE Geoscience and Remote Sensing Letters, 2022."
 
 
