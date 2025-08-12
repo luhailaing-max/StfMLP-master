@@ -63,10 +63,13 @@ getimgblock3():对给定多光谱图像，进行分块并排序，每块包含�
     idx: 序号
 
 """
+import math
 def getimgblock3(arr, idx, partrow, partcol, overlap = 0):
     band, r, c = arr.shape
-    rnum = r / partrow
-    cnum = c / partcol
+    # rnum = r / partrow
+    # cnum = c / partcol
+    rnum = math.ceil(r / partrow)
+    cnum = math.ceil(c / partcol)
     tem = idx
     idr = int(tem // cnum)
     idc = int(tem % cnum)
